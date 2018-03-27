@@ -7,7 +7,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class UsersController {
     @RequestMapping(value = "/users/register", method = RequestMethod.GET)
-    public String index() {
+
+    public String register()
+    {
         return "users/register";
     }
 }
