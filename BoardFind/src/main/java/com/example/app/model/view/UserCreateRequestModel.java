@@ -1,4 +1,4 @@
-package com.example.app.model;
+package com.example.app.model.view;
 
 public class UserCreateRequestModel {
     private String username;
