@@ -1,4 +1,4 @@
-package com.example.app.Models.entity;
+package com.example.app.model.entity;
 import javax.persistence.*;
 
 @Entity
@@ -7,6 +7,15 @@ public class User {
     private Long Id;
     private String username;
     private String password;
+    private String email;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

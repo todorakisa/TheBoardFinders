@@ -26,7 +26,7 @@ public class UsersController {
     @RequestMapping(value = "/users/register", method = RequestMethod.POST)
     public String register(UserCreateRequestModel viewModel,Model model){
         //it's ok
-        if(this.userService.register(viewModel.getUsername(), viewModel.getPassword()))
+        if(this.userService.register(viewModel.getUsername(), viewModel.getPassword(), viewModel.getEmail()))
             return "redirect:/";
         //errors
         model.addAttribute("viewModel",viewModel);
