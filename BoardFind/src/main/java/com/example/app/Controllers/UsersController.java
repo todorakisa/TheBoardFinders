@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class UsersController {
@@ -27,9 +28,15 @@ public class UsersController {
     public String register(UserCreateRequestModel viewModel,Model model){
         //it's ok
         if(this.userService.register(viewModel.getUsername(), viewModel.getPassword(), viewModel.getEmail()))
-            return "redirect:/";
+            return "users/login"; //redirect:/
         //errors
         model.addAttribute("viewModel",viewModel);
         return "users/register";
+    }
+    @RequestMapping(value = "/users/login", method = RequestMethod.GET)
+    public ModelAndView login(ModelAndView modelandview)
+    {
+            modelandview.setViewName("/users/login");
+            return modelandview;
     }
 }
