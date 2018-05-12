@@ -33,10 +33,12 @@ public class UsersController {
         model.addAttribute("viewModel",viewModel);
         return "users/register";
     }
+
     @RequestMapping(value = "/users/login", method = RequestMethod.GET)
     public ModelAndView login(ModelAndView modelandview)
     {
             modelandview.setViewName("/users/login");
+           // modelandview.addObject("viewModel",new EventCreateRequestModel());
             return modelandview;
     }
 }
