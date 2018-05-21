@@ -19,11 +19,13 @@ public class User implements UserDetails {
     private boolean isAccountNonLocked;
     private boolean isCredentialsNonExpired;
     private boolean isEnabled;
-    private Set<Role> authorities;
 
     @ManyToMany
     @JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "user_id"),
     inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> authorities;
+
+    @Override
     public Set<Role> getAuthorities() {
         return authorities;
     }

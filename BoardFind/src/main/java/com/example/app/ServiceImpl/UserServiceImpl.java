@@ -4,9 +4,11 @@ import com.example.app.Repository.UserRepository;
 import com.example.app.Service.UserService;
 import com.example.app.entity.User;
 import com.example.app.model.RegistrationModel;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.modelmapper.ModelMapper.*;
 
 @Service
 public class UserServiceImpl implements UserService{
@@ -22,7 +24,7 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public void register(RegistrationModel registrationModel) {
-        User user = this.modelMapper.map{registrationModel, User.class};
+        User user = this.modelMapper.map(registrationModel, User.class);
         String encryptedPassword = this.bCryptPasswordEncoder.encode(registrationModel.getPassword());
         user.setPassword(encryptedPassword);
         user.setAccountNonExpired(true);
