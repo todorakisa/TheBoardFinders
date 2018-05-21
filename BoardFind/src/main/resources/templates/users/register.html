@@ -104,7 +104,7 @@
 </head>
 <body>
 <div class="signup-form">
-    <form method="post" th:object="registrationModel">
+    <form method="post" th:object="${registrationModel}">
         <h2>Register</h2>
         <p class="hint-text">Create your account. It's free and only takes a minute.</p>
         <div class="form-group">
@@ -126,7 +126,7 @@
             <button type="submit" class="btn btn-success btn-lg btn-block">Register Now</button>
         </div>
     </form>
-    <div class="text-center">Already have an account? <a href="/users/login">Sign in</a></div>
+    <div class="text-center">Already have an account? <a href="/login">Sign in</a></div>
 </div>
 </body>
 </html>

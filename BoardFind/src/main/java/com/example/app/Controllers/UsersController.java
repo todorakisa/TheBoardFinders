@@ -19,13 +19,13 @@ public class UsersController {
 
    @GetMapping("/register")
     public String getRegisterPage(@ModelAttribute RegistrationModel registrationModel){
-       return "/users/register";
+       return "users/register";
    }
 
     @PostMapping("/register")
     public String registerUser(@Valid @ModelAttribute RegistrationModel registrationModel, BindingResult bindingResult){
        if(bindingResult.hasErrors()) {
-           return "/users/register";
+           return "users/register";
        }
 
        this.userService.register(registrationModel);
@@ -35,7 +35,7 @@ public class UsersController {
 
     @GetMapping("/login")
     public String getLoginPage(){
-        return "/users/login";
+        return "users/login";
     }
 
 }
