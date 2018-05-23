@@ -1,4 +1,5 @@
 package com.example.app.Controllers;
+import com.example.app.Config.Errors;
 import com.example.app.Service.UserService;
 import com.example.app.model.RegistrationModel;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,8 +35,21 @@ public class UsersController {
     }
 
     @GetMapping("/login")
-    public String getLoginPage(){
-        return "users/login";
+    public String getLoginPage(@RequestParam(required = false) String error, Model model){
+       if(error != null){
+           model.addAttribute("error", Errors.INVALID_CREDENTIALS);
+       }
+       return "users/login";
+    }
+
+    @GetMapping("/user")
+    public String getUserPage(){
+        return "authorities/user";
+    }
+
+    @GetMapping("/admin")
+    public String getAdminPage(){
+        return "authorities/admin";
     }
 
 }
