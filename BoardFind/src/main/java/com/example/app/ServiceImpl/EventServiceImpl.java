@@ -25,9 +25,12 @@ public class EventServiceImpl implements EventService {
     @Override
     public void register(RegistrationEvent registrationEvent) {
         Event event = this.modelMapper.map(registrationEvent, Event.class);
-        String encryptedPassword = this.bCryptPasswordEncoder.encode(registrationEvent.getPassword());
-
-
+        event.setGames(registrationEvent.getGames());
+        event.setDescription(registrationEvent.getDescription());
+        event.setLatitude(registrationEvent.getLatitude());
+        event.setLongitude(registrationEvent.getLongitude());
+        event.setName(registrationEvent.getName());
+        event.setPlayers(registrationEvent.getPlayers());
         this.eventRepository.save(event);
 
     }
