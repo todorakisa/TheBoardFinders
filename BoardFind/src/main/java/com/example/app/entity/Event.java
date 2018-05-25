@@ -17,6 +17,14 @@ public class Event {
     private double latitude;
     private double longitude;
     private String description;
+    private User owner;
+
+    public User getOwner(){
+        return owner;
+    }
+    public void setOwner(User owner){
+        this.owner = owner;
+    }
 
     public String getDescription(){
         return description;
