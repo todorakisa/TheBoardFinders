@@ -25,7 +25,7 @@ public class EventServiceImpl implements EventService {
     @Override
     public void register(RegistrationEvent registrationEvent) {
         Event event = this.modelMapper.map(registrationEvent, Event.class);
-        event.setGames(registrationEvent.getGames());
+//        event.setGames(registrationEvent.getGames());
         event.setDescription(registrationEvent.getDescription());
         event.setLatitude(registrationEvent.getLatitude());
         event.setLongitude(registrationEvent.getLongitude());

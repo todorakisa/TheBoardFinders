@@ -12,9 +12,9 @@ public class Event {
     private long id;
 
     private String name;
-    @OneToMany(targetEntity = Event.class, mappedBy="name", fetch=FetchType.EAGER)
-    private List<String> games;
-    @OneToMany(targetEntity = Event.class, mappedBy="name", fetch=FetchType.EAGER)
+//    private List<String> games;
+    @ManyToMany(fetch=FetchType.EAGER,cascade = {CascadeType.ALL})
+    @JoinTable(name = "event_users", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "event_id"))
     private List<User> players;
     private double latitude;
     private double longitude;
@@ -64,13 +64,13 @@ public class Event {
         this.id = id;
     }
 
-    public List<String> getGames() {
-        return games;
-    }
-
-    public void setGames(List<String> games) {
-        this.games = games;
-    }
+//    public List<String> getGames() {
+//        return games;
+//    }
+//
+//    public void setGames(List<String> games) {
+//        this.games = games;
+//    }
 
     public List<User> getPlayers() {
         return players;

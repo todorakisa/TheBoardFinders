@@ -56,8 +56,9 @@ public class AdminPanelController {
             List<Role> allRoles = new ArrayList<>(userRepository.findOneByUsername(username).getAuthorities());
             Role role = allRoles.get(0);
             String authority = role.getAuthority();
-            if(authority.equals(""))
-            model.addAttribute("user_authority", role.getAuthority());
+            if(authority.equals("ROLE_USER")) authority = "USER";
+            else if(authority.equals("ROLE_ADMIN")) authority = "ADMIN";
+            model.addAttribute("user_authority", authority);
             return "admin/onEdit";
         }
 }
