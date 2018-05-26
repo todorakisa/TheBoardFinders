@@ -12,7 +12,9 @@ public class Event {
     private long id;
 
     private String name;
+    @OneToMany(targetEntity = Event.class, mappedBy="name", fetch=FetchType.EAGER)
     private List<String> games;
+    @OneToMany(targetEntity = Event.class, mappedBy="name", fetch=FetchType.EAGER)
     private List<User> players;
     private double latitude;
     private double longitude;

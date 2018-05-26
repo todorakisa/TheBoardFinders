@@ -32,16 +32,5 @@ public class EventServiceImpl implements EventService {
         event.setName(registrationEvent.getName());
         event.setPlayers(registrationEvent.getPlayers());
         this.eventRepository.save(event);
-
-    }
-
-    public Event loadUserByUsername(String name) throws UsernameNotFoundException {
-        Event event = this.eventRepository.findOneByUsername(name);
-
-        if(event == null){
-            throw new UsernameNotFoundException(Errors.INVALID_CREDENTIALS);
-        }
-
-        return event;
     }
 }
