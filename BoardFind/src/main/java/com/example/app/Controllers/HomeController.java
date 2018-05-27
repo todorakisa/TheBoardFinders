@@ -11,7 +11,7 @@ public class HomeController {
         return "home/index";
     }
 
-    @RequestMapping(value = "/aboutUs", method = RequestMethod.GET)
+    @RequestMapping(value = "/user/aboutUs", method = RequestMethod.GET)
     public String getAboutUsPage(){
         return "home/aboutUs";
     }
