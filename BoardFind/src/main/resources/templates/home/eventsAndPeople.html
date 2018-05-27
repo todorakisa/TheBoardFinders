@@ -211,7 +211,7 @@
 <body id="eventspeoplebody">
 <ul>
     <li><a href="/">Home</a></li>
-    <li><a class="active" href="eventsAndPeople.html">Events & People</a></li>
+    <li><a class="active" href="/eventsAndPeople">Events & People</a></li>
     <li><a href="./Trade.html">Trade</a></li>
     <li><a href="#chat">Chat</a></li>
     <li><a href="#account">Account</a></li>
@@ -236,7 +236,7 @@
 <br>
 <div align="center">
     <div id="map" style="width:1200px;height:800px;background:purple"></div>
-    <div id="map" align="center"></div>
+    <div  align="center"></div>
     <script>
         function initMap() {
             var mapDiv = document.getElementById('map');
@@ -269,7 +269,7 @@
 </div>
 </p>
 <br>
-<p align="center"> <button class="create button1" th:href="@{/events/registerEvent}"><b>Create an Event</b></button> </p>
+<p align="center"> <a th:href="@{eventsAndPeople/registerEvent}"><button class="create button1"><b>Create an Event</b></button></a></p>
 
 <br><br>
 <div id="footer">
@@ -283,7 +283,7 @@
         <a href="#Advertising" style="text-decoration: none" target="_blank"><font color="white"><font size="6"><b>Advertising</a></b>&nbsp
         |&nbsp <a href="#Terms" style="text-decoration: none" target="_blank"><font color="white"><b>Terms and Conditions</a></b>&nbsp
         |&nbsp <a href="#FAQ" style="text-decoration: none" target="_blank"><font color="white"><b>FAQ</a></b>&nbsp
-        |&nbsp <a href="#Contact" style="text-decoration: none" target="_blank"><font color="white"><b>Contact us</a></b></font>
+        |&nbsp <a href="#Contact" style="text-decoration: none" target="_blank"><font color="white"><b>Contact us</b></a></font>
         <br><br>
         <span id="copy">Copyright © 2018 Board Game inc.™</span>
         <br><br>

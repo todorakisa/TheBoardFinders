@@ -3,18 +3,21 @@ package com.example.app.model;
 import com.example.app.entity.User;
 
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
 import java.util.List;
 
 public class RegistrationEvent {
     @Size(min = 5, max = 100, message = "Event name too short")
     private String name;
-    private List<String> games;
-    private List<User> players;
+    private List<String> games = new ArrayList<>();
+    private List<User> players = new ArrayList<>();
     private double latitude;
     private double longitude;
     private String description;
     private User owner;
     private String date;
+    private String gamesToParse;
+    private String playerstoParse;
 
     public String getDate() {
         return date;
@@ -68,8 +71,11 @@ public class RegistrationEvent {
         return games;
     }
 
-    public void setGames(List<String> games) {
-        this.games = games;
+    public void setGames(String gamesData) {
+        String[] array = gamesData.split(",");
+        for (String g:array) {
+            this.games.add(g);
+        }
     }
 
     public String getName() {

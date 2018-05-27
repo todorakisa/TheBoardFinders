@@ -1,7 +1,5 @@
-package com.example.app.repository;
-
+package com.example.app.Repository;
 import com.example.app.entity.Event;
-import com.example.app.entity.User;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;

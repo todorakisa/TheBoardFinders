@@ -1,19 +1,17 @@
 package com.example.app.ServiceImpl;
-
-import com.example.app.Config.Errors;
+import com.example.app.Repository.EventRepository;
 import com.example.app.Service.EventService;
 import com.example.app.entity.Event;
 import com.example.app.model.RegistrationEvent;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
 public class EventServiceImpl implements EventService {
 
     @Autowired
-    private com.example.app.repository.EventRepository eventRepository;
+    private EventRepository eventRepository;
 
     @Autowired
     private ModelMapper modelMapper;
