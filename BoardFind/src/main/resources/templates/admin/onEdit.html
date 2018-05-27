@@ -50,7 +50,7 @@
 
             <tr>
                 <td scope="row"></td>
-                <form method="post" th:action="@{/admin/manage/users/${user.username}/edit}" th:object="${data}">
+                <form method="post" th:object="${data}">
                     <td><input type="text" name="username" th:field="*{username}"/></td>
                     <td><input type="text" name="role" th:field="*{role}" /></td>
                     <td><input type="submit" value="update" /></td>

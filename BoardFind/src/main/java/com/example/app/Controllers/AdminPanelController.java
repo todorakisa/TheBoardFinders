@@ -62,23 +62,32 @@ public class AdminPanelController {
             return "admin/onEdit";
         }
 
-    @PostMapping("/admin/manage/users/*/edit")
-        public String editedUser(@ModelAttribute EditUser editUser){
+    @PostMapping("/admin/manage/users/{username}/edit")
+        public String editedUser(@ModelAttribute EditUser editUser,@PathVariable String username){
 
-        User user =  this.userRepository.findOneByUsername(editUser.getUsername());
+        User user =  this.userRepository.findOneByUsername(username);
 
-            if(editUser.getRole() != null){
+            if(editUser.getRole() != ""){
                 Role updateRole = new Role();
                 updateRole.setAuthority(editUser.getRole());
+                System.out.println(editUser.getUsername());
+                System.out.println("ORIGINAL: " + user.getUsername());
                 Set<Role> set = user.getAuthorities();
                 List<Role> roles = new ArrayList<>(set);
                 roles.remove(0);
                 roles.add(updateRole);
+
             }
 
-            if(editUser.getUsername() != null){
+            if(editUser.getUsername() != ""){
                user.setUsername(editUser.getUsername());
             }
+//            else{
+//                user.setUsername(username);
+//            }
+
+            if(editUser.getUsername() != "" || editUser.getRole()!="")
+                this.userRepository.save(user);
 
             return "admin/editingInProgress";
         }
