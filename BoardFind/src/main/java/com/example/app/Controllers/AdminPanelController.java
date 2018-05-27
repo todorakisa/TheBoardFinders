@@ -62,23 +62,34 @@ public class AdminPanelController {
             return "admin/onEdit";
         }
 
-    @PostMapping("/admin/manage/users/*/edit")
-        public String editedUser(@ModelAttribute EditUser editUser){
+    @PostMapping("/admin/manage/users/{username}/edit")
+        public String editedUser(@ModelAttribute EditUser editUser,@PathVariable String username){
 
-        User user =  this.userRepository.findOneByUsername(editUser.getUsername());
+        User user =  this.userRepository.findOneByUsername(username);
 
-            if(editUser.getRole() != null){
+            if(editUser.getRole() != ""){
                 Role updateRole = new Role();
                 updateRole.setAuthority(editUser.getRole());
+                System.out.println("To Edit" + editUser.getRole());
                 Set<Role> set = user.getAuthorities();
                 List<Role> roles = new ArrayList<>(set);
                 roles.remove(0);
+                updateRole.setAuthority(updateRole.getAuthority().toUpperCase());
+                if(updateRole.getAuthority().equals("ADMIN")) updateRole.setAuthority("ROLE_ADMIN");
+                else if(updateRole.getAuthority().equals("USER")) updateRole.setAuthority("ROLE_USER");
                 roles.add(updateRole);
+                Set<Role> updatedRoles = new HashSet<>(roles);
+                user.setAuthorities(updatedRoles);
+
             }
 
-            if(editUser.getUsername() != null){
+            if(editUser.getUsername() != ""){
                user.setUsername(editUser.getUsername());
             }
+
+
+            if(editUser.getUsername() != "" || editUser.getRole()!="")
+                this.userRepository.save(user);
 
             return "admin/editingInProgress";
         }
