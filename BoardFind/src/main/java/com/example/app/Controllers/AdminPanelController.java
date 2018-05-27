@@ -2,17 +2,16 @@ package com.example.app.Controllers;
 
 import com.example.app.Repository.UserRepository;
 import com.example.app.entity.Role;
+import com.example.app.entity.User;
+import com.example.app.model.EditUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 @Controller
 public class AdminPanelController {
@@ -44,15 +43,16 @@ public class AdminPanelController {
     @GetMapping("/admin/manage/users/{username}/delete")
     public String deleteUser(@PathVariable String username){
         this.userRepository.delete(this.userRepository.findOneByUsername(username));
-        if(this.userRepository.findOneByUsername(username) == null){
+//        if(this.userRepository.findOneByUsername(username) == null){
             return "admin/onDelete";
-        }
-        return null;
+//        }
+//        return null;
     }
 
     @GetMapping("/admin/manage/users/{username}/edit")
         public String editUser(Model model,@PathVariable String username){
             model.addAttribute("user", this.userRepository.findOneByUsername(username));
+            model.addAttribute("data",new EditUser());
             List<Role> allRoles = new ArrayList<>(userRepository.findOneByUsername(username).getAuthorities());
             Role role = allRoles.get(0);
             String authority = role.getAuthority();
@@ -60,5 +60,26 @@ public class AdminPanelController {
             else if(authority.equals("ROLE_ADMIN")) authority = "ADMIN";
             model.addAttribute("user_authority", authority);
             return "admin/onEdit";
+        }
+
+    @PostMapping("/admin/manage/users/*/edit")
+        public String editedUser(@ModelAttribute EditUser editUser){
+
+        User user =  this.userRepository.findOneByUsername(editUser.getUsername());
+
+            if(editUser.getRole() != null){
+                Role updateRole = new Role();
+                updateRole.setAuthority(editUser.getRole());
+                Set<Role> set = user.getAuthorities();
+                List<Role> roles = new ArrayList<>(set);
+                roles.remove(0);
+                roles.add(updateRole);
+            }
+
+            if(editUser.getUsername() != null){
+               user.setUsername(editUser.getUsername());
+            }
+
+            return "admin/editingInProgress";
         }
 }
