@@ -8,7 +8,7 @@ import java.util.List;
 public class RegistrationEvent {
     @Size(min = 5, max = 100, message = "Event name too short")
     private String name;
-//    private List<String> games;
+    private List<String> games;
     private List<User> players;
     private double latitude;
     private double longitude;
@@ -55,13 +55,13 @@ public class RegistrationEvent {
         this.players = players;
     }
 
-//    public List<String> getGames() {
-//        return games;
-//    }
+    public List<String> getGames() {
+        return games;
+    }
 
-//    public void setGames(List<String> games) {
-//        this.games = games;
-//    }
+    public void setGames(List<String> games) {
+        this.games = games;
+    }
 
     public String getName() {
         return name;
