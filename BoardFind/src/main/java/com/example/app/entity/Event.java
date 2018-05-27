@@ -23,6 +23,25 @@ public class Event {
     private String description;
     private String date;
     private User owner;
+    private String gamesToParse;
+    private String usersToParse;
+
+
+    public String getGamesToParse() {
+        return gamesToParse;
+    }
+
+    public void setGamesToParse(String gamesToParse) {
+        this.gamesToParse = gamesToParse;
+    }
+
+    public String getUsersToParse() {
+        return usersToParse;
+    }
+
+    public void setUsersToParse(String usersToParse) {
+        this.usersToParse = usersToParse;
+    }
 
     public String getDate() {
         return date;
@@ -83,6 +102,13 @@ public class Event {
         this.games = games;
     }
 
+    public void setGames(String gamesData) {
+        String[] array = gamesData.split(",");
+        for (String g:array) {
+            this.games.add(g);
+        }
+    }
+    
     public List<User> getPlayers() {
         return players;
     }

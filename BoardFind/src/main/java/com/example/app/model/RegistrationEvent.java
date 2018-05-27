@@ -15,6 +15,25 @@ public class RegistrationEvent {
     private String description;
     private User owner;
     private String date;
+    private String gamesToParse;
+    private String usersToParse;
+
+
+    public String getGamesToParse() {
+        return gamesToParse;
+    }
+
+    public void setGamesToParse(String gamesToParse) {
+        this.gamesToParse = gamesToParse;
+    }
+
+    public String getUsersToParse() {
+        return usersToParse;
+    }
+
+    public void setUsersToParse(String usersToParse) {
+        this.usersToParse = usersToParse;
+    }
 
     public String getDate() {
         return date;
@@ -70,6 +89,13 @@ public class RegistrationEvent {
 
     public void setGames(List<String> games) {
         this.games = games;
+    }
+
+    public void setGames(String gamesData) {
+        String[] array = gamesData.split(",");
+        for (String g:array) {
+            this.games.add(g);
+        }
     }
 
     public String getName() {
