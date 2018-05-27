@@ -70,21 +70,23 @@ public class AdminPanelController {
             if(editUser.getRole() != ""){
                 Role updateRole = new Role();
                 updateRole.setAuthority(editUser.getRole());
-                System.out.println(editUser.getUsername());
-                System.out.println("ORIGINAL: " + user.getUsername());
+                System.out.println("To Edit" + editUser.getRole());
                 Set<Role> set = user.getAuthorities();
                 List<Role> roles = new ArrayList<>(set);
                 roles.remove(0);
+                updateRole.setAuthority(updateRole.getAuthority().toUpperCase());
+                if(updateRole.getAuthority().equals("ADMIN")) updateRole.setAuthority("ROLE_ADMIN");
+                else if(updateRole.getAuthority().equals("USER")) updateRole.setAuthority("ROLE_USER");
                 roles.add(updateRole);
+                Set<Role> updatedRoles = new HashSet<>(roles);
+                user.setAuthorities(updatedRoles);
 
             }
 
             if(editUser.getUsername() != ""){
                user.setUsername(editUser.getUsername());
             }
-//            else{
-//                user.setUsername(username);
-//            }
+
 
             if(editUser.getUsername() != "" || editUser.getRole()!="")
                 this.userRepository.save(user);
