@@ -108,7 +108,7 @@ public class Event {
             this.games.add(g);
         }
     }
-    
+
     public List<User> getPlayers() {
         return players;
     }
