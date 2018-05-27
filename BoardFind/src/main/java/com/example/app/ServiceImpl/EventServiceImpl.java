@@ -31,6 +31,7 @@ public class EventServiceImpl implements EventService {
         event.setLongitude(registrationEvent.getLongitude());
         event.setName(registrationEvent.getName());
         event.setPlayers(registrationEvent.getPlayers());
+        event.setDate(registrationEvent.getDate());
         this.eventRepository.save(event);
     }
 }

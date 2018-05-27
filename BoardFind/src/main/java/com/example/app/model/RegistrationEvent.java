@@ -14,6 +14,15 @@ public class RegistrationEvent {
     private double longitude;
     private String description;
     private User owner;
+    private String date;
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
 
     public User getOwner() {
         return owner;

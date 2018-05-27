@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="http:thymeleaf.org">
 
 <head>
     <title>Events & People</title>
@@ -215,7 +215,7 @@
     <li><a href="./Trade.html">Trade</a></li>
     <li><a href="#chat">Chat</a></li>
     <li><a href="#account">Account</a></li>
-    <li><a href="aboutUs.html">About us</a></li>
+    <li><a href="/aboutUs">About us</a></li>
     <li style="float:right">
         <a href="/logout">Sign out</a>
     </li>
@@ -269,7 +269,7 @@
 </div>
 </p>
 <br>
-<p align="center"> <button class="create button1"><b>Create an Event</b></button> </p>
+<p align="center"> <button class="create button1" th:href="@{/events/registerEvent}"><b>Create an Event</b></button> </p>
 
 <br><br>
 <div id="footer">
