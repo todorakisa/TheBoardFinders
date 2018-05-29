@@ -33,8 +33,8 @@
 </div>
 
 <br>
-<!--<div align="center">-->
-    <div id="map" align="center"></div>
+<div align="center">
+    <div id="map"></div>
     <script>
         function initMap() {
             var uluru = {lat: 42.662369, lng:  23.373397};
@@ -51,7 +51,7 @@
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8SYKd91aaFo6L3B-sq4tbSHa-wHzuByE&callback=initMap">
     </script>
-<!--</div>-->
+</div>
 
 <br>
 <!--<form method="post" th:object="${event}">-->
@@ -64,22 +64,22 @@
     <div align="center">
         <div id="info" class ="specialText">
             <span class="blue"> Event name*: </span><br>
-            <input type="text" class="input2" th:field="*{name}"><br>
+            <input type="text" class="input2" th:field="*{name}" /><br>
 
             <span class="blue"> Games at the event*: </span><br>
-            <input type="text" class="input2" th:field="*{gamesToParse}"><br>
+            <input type="text" class="input2" th:field="*{gamesToParse}" /><br>
 
             <span class="blue"> Date*: </span><br>
-            <input type="text" class="input2" th:field="*{date}"><br>
+            <input type="text" class="input2" th:field="*{date}" /><br>
 
             <span class="blue"> Player emails*: </span><br>
-            <input type="text" class="input2" th:field="*{usersToParse}"><br>
+            <input type="text" class="input2" th:field="*{usersToParse}" /><br>
 
             <span class="blue"> Description: </span><br>
-            <input type="textarea" class="input2" th:field="*{description}"><br>
+            <input type="textarea" class="input2" th:field="*{description}" /><br>
 
             <span class="blue"> latitude*: </span><br>
-            <input type="text" class="input2" th:field="*{latitude}"><br>
+            <input type="text" class="input2" th:field="*{latitude}" /><br>
 
             <span class="blue"> longitude*: </span><br>
             <input type="text" class="input2" th:field="*{longitude}"><br>
