@@ -1,6 +1,8 @@
 package com.example.app.Controllers;
 
+import com.example.app.Repository.EventRepository;
 import com.example.app.Service.EventService;
+import com.example.app.entity.Event;
 import com.example.app.model.RegistrationEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +13,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.example.app.repository.EventRepository;
 
         import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class EventsController {
@@ -54,7 +58,18 @@ public class EventsController {
     }
 
     @RequestMapping(value = "/user/eventsAndPeople", method = RequestMethod.GET)
-    public String getEventsAndPeoplePage(){
+    public String getEventsAndPeoplePage(Model model){
+        List<Event> locations = this.eventRepository.findAll();
+        List<Double> latitudeCoordinates = new ArrayList<>();
+        List<Double> longitudeCoordinates = new ArrayList<>();
+
+        for(Event event : locations){
+            latitudeCoordinates.add(event.getLatitude());
+            longitudeCoordinates.add(event.getLongitude());
+        }
+
+        model.addAttribute("latitudes", latitudeCoordinates.toArray());
+        model.addAttribute("longitudes", longitudeCoordinates.toArray());
         return "home/eventsAndPeople";
     }
 
