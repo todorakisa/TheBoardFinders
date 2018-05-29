@@ -8,8 +8,6 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface EventRepository extends CrudRepository<Event, Long> {
-//    @Query("SELECT e FROM events e WHERE LOWER(e.name) = LOWER(:name)")
-//    Event findOneByName(@Param("name") String name);
-
+    Event findOneByNameIgnoreCase(String name);
     List<Event> findAll();
 }

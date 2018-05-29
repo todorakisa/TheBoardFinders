@@ -47,11 +47,11 @@ public class EventsController {
         return "admin/events";
     }
 
-//    @GetMapping("/user/manage/events/{name}")
-//    public String getEvent(Model model, @PathVariable String name ) {
-//        model.addAttribute("events",this.eventRepository.findOneByUsername(name));
-//        return "admin/events";
-//    }
+    @GetMapping("/user/manage/events/{name}")
+    public String getEvent(Model model, @PathVariable String name ) {
+        model.addAttribute("events",this.eventRepository.findOneByNameIgnoreCase(name));
+        return "admin/events";
+    }
 
     @RequestMapping(value = "/user/eventsAndPeople", method = RequestMethod.GET)
     public String getEventsAndPeoplePage(){
