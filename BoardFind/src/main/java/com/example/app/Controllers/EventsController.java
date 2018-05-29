@@ -50,7 +50,7 @@ public class EventsController {
     @GetMapping("/user/seeAll/events/{name}")
     public String getEvent(Model model, @PathVariable String name ) {
         model.addAttribute("events",this.eventRepository.findOneByNameIgnoreCase(name));
-        return "admin/events";
+        return "events/singleEvent";
     }
 
     @RequestMapping(value = "/user/eventsAndPeople", method = RequestMethod.GET)

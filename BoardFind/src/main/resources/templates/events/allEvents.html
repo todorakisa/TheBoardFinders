@@ -293,13 +293,13 @@
     <th:block th:each="event : ${events}">
 
         <tr>
-            <th scope="row"><a th:href="@{'/user/manage/events/' + ${event.name}}" th:text="${event.id}"></a></th>
-            <td><a th:href="@{'/user/manage/events/' + ${event.games}}" th:text="${event.games}">...</a></td>
-            <td><a th:href="@{'/user/manage/events/' + ${event.date}}" th:text="${event.date}">...</a></td>
-            <td><a th:href="@{'/user/manage/events/' + ${event.date}}" th:text="${event.date}">...</a></td>
-            <td><a th:href="@{'/user/manage/events/' + ${event.description}}" th:text="${event.description}">...</a></td>
-            <td><a th:href="@{'/user/manage/events/' + ${event.latitude}}" th:text="${event.latitude}">...</a></td>
-            <td><a th:href="@{'/user/manage/events/' + ${event.longitude}}" th:text="${event.longitude}">...</a></td>
+            <th scope="row"><a th:href="@{'/user/seeAll/events/' + ${event.name}}" th:text="${event.id}"></a></th>
+            <td><a th:href="@{'/user/seeAll/events/' + ${event.games}}" th:text="${event.games}">...</a></td>
+            <td><a th:href="@{'/user/seeAll/events/' + ${event.date}}" th:text="${event.date}">...</a></td>
+            <td><a th:href="@{'/user/seeAll/events/' + ${event.date}}" th:text="${event.date}">...</a></td>
+            <td><a th:href="@{'/user/seeAll/events/' + ${event.description}}" th:text="${event.description}">...</a></td>
+            <td><a th:href="@{'/user/seeAll/events/' + ${event.latitude}}" th:text="${event.latitude}">...</a></td>
+            <td><a th:href="@{'/user/seeAll/events/' + ${event.longitude}}" th:text="${event.longitude}">...</a></td>
         </tr>
 
     </th:block>
