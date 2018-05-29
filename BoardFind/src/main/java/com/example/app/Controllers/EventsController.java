@@ -32,6 +32,9 @@ public class EventsController {
 
     @PostMapping("/user/eventsAndPeople/registerEvent")
     public String registerEvent(@Valid @ModelAttribute RegistrationEvent registrationEvent, BindingResult bindingResult){
+        if(bindingResult.hasErrors()) {
+            return "events/registerEvent";
+        }
         this.eventService.register(registrationEvent);
         return "events/registerEvent";
     }
