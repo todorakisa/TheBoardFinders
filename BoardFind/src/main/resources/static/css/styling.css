@@ -5,7 +5,7 @@
 
 #eventspeoplebody
 {
-    background: url(./wall.png), url(./wallpaper2.jpg);
+    background: url(/resources/images/wall.png), url(/resources/images/wallpaper2.jpg);
     background-repeat: no-repeat, repeat;
     background-position: 0px 72px, 0px 300px;
     background-color: #0c0c0c;
