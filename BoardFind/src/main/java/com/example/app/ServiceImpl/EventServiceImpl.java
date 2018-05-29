@@ -1,6 +1,8 @@
 package com.example.app.ServiceImpl;
-import com.example.app.Repository.EventRepository;
-import com.example.app.Repository.UserRepository;
+import com.example.app.Config.Errors;
+import com.example.app.entity.User;
+import com.example.app.repository.EventRepository;
+import com.example.app.repository.UserRepository;
 import com.example.app.Service.EventService;
 import com.example.app.entity.Event;
 import com.example.app.model.RegistrationEvent;
@@ -8,6 +10,8 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -43,4 +47,5 @@ public class EventServiceImpl implements EventService {
         event.setOwner(this.userRepository.findOneByUsername(name));
         this.eventRepository.save(event);
     }
+
 }

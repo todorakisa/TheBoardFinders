@@ -1,6 +1,6 @@
 package com.example.app.ServiceImpl;
 import com.example.app.Config.Errors;
-import com.example.app.Repository.UserRepository;
+import com.example.app.repository.UserRepository;
 import com.example.app.Service.UserService;
 import com.example.app.entity.Role;
 import com.example.app.entity.User;
