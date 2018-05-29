@@ -4,7 +4,7 @@
 <head>
     <title>Events & People</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="/resources/css/styling.css">
+    <link rel="stylesheet" type="text/css" href="/resources/css/styling.css" />
 </head>
 
 <body id="eventspeoplebody">
@@ -36,8 +36,10 @@
 <div align="center">
 
     <div id="map"style="width:1200px;height:800px;background:purple"></div>
+
     <script>
         function initMap() {
+
             var center = {lat: 42.662369, lng:  23.373397};
             var map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 15,
