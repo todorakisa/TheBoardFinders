@@ -33,13 +33,13 @@
 </div>
 
 <br>
-<!--<div align="center">-->
-    <div id="map" align="center"></div>
+<div align="center">
+    <div id="map"style="width:1200px;height:800px;background:purple"></div>
     <script>
         function initMap() {
             var uluru = {lat: 42.662369, lng:  23.373397};
             var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 4,
+                zoom: 15,
                 center: uluru
             });
             var marker = new google.maps.Marker({
@@ -51,7 +51,7 @@
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8SYKd91aaFo6L3B-sq4tbSHa-wHzuByE&callback=initMap">
     </script>
-<!--</div>-->
+</div>
 
 <br>
 <!--<form method="post" th:object="${event}">-->
