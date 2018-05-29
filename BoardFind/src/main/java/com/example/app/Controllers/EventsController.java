@@ -41,13 +41,13 @@ public class EventsController {
         return "events/registerEvent";
     }
 
-    @GetMapping("/user/manage/events")
+    @GetMapping("/user/seeAll/events")
     public String getAllEvents(Model model) {
         model.addAttribute("events",this.eventRepository.findAll());
-        return "admin/events";
+        return "events/allEvents";
     }
 
-    @GetMapping("/user/manage/events/{name}")
+    @GetMapping("/user/seeAll/events/{name}")
     public String getEvent(Model model, @PathVariable String name ) {
         model.addAttribute("events",this.eventRepository.findOneByNameIgnoreCase(name));
         return "admin/events";
