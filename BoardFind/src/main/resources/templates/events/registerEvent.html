@@ -38,15 +38,30 @@
     <div id="map"style="width:1200px;height:800px;background:purple"></div>
     <script>
         function initMap() {
-            var uluru = {lat: 42.662369, lng:  23.373397};
+            var center = {lat: 42.662369, lng:  23.373397};
             var map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 15,
-                center: uluru
+                center: center
             });
             var marker = new google.maps.Marker({
-                position: uluru,
-                map: map
+                position: center,
+                map: map,
+                draggable: true
             });
+
+            google.maps.event.addListener(marker, 'dragend', function(evt){
+                document.getElementById('mapEnd1').value = evt.latLng.lat().toFixed(3);
+                document.getElementById('mapEnd2').value = evt.latLng.lng().toFixed(3);
+
+            });
+
+            google.maps.event.addListener(myMarker, 'dragstart', function(evt){
+                document.getElementById('mapEnd1').value = "";
+                document.getElementById('mapEnd2').value = "";
+            });
+
+            map.setCenter(marker.position);
+            myMarker.setMap(map);
         }
     </script>
     <script async defer
@@ -80,10 +95,10 @@
             <input type="textarea" class="input2" th:field="*{description}" /><br>
 
             <span class="blue"> latitude*: </span><br>
-            <input type="text" class="input2" th:field="*{latitude}" /><br>
+            <input id="mapEnd1" type="text" class="input2" th:field="*{latitude}" value="" /><br>
 
             <span class="blue"> longitude*: </span><br>
-            <input type="text" class="input2" th:field="*{longitude}"><br>
+            <input id="mapEnd2" type="text" class="input2" th:field="*{longitude}" value="" /><br>
             <p class="smallInfo" align="center">fields with * must be filled!</p>
         </div>
 
