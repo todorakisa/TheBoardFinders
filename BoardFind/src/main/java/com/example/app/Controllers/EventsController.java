@@ -25,8 +25,8 @@ public class EventsController {
     }
 
     @GetMapping("/user/eventsAndPeople/registerEvent")
-    public String getRegisterPage(Model model, RegistrationEvent registrationEvent, BindingResult bindingResult){
-        model.addAttribute("event", registrationEvent);
+    public String getRegisterPage(Model model){
+        model.addAttribute("event", new RegistrationEvent());
         return "events/registerEvent";
     }
 
