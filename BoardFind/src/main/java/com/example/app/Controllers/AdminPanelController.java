@@ -1,6 +1,6 @@
 package com.example.app.Controllers;
 
-import com.example.app.Repository.UserRepository;
+import com.example.app.repository.UserRepository;
 import com.example.app.entity.Role;
 import com.example.app.entity.User;
 import com.example.app.model.EditUser;
@@ -19,8 +19,8 @@ public class AdminPanelController {
     @Autowired
     private UserRepository userRepository;
 
-//    @Autowired
-////    private UserRepository eventRepository;
+    @Autowired
+    private UserRepository eventRepository;
 
     @GetMapping("/admin/manage/users")
     public String getAllUsers(Model model) {
@@ -28,11 +28,17 @@ public class AdminPanelController {
         return "admin/users";
     }
 
-//    @GetMapping("/admin/manage/events")
-//    public String getAllEvents(Model model) {
-//        model.addAttribute("events",this.eventRepository.findAll());
-//        return "admin/events";
-//    }
+    @GetMapping("/admin/manage/events")
+    public String getAllEvents(Model model) {
+        model.addAttribute("events",this.eventRepository.findAll());
+        return "admin/events";
+    }
+
+    @GetMapping("/admin/manage/events/{name}")
+    public String getEvent(Model model, @PathVariable String name ) {
+        model.addAttribute("events",this.eventRepository.findOneByUsername(name));
+        return "admin/events";
+    }
 
     @GetMapping("/admin/manage/users/{username}")
     public String getUser(Model model, @PathVariable String username){

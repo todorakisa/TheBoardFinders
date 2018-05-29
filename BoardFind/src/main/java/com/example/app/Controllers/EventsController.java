@@ -5,13 +5,12 @@ import com.example.app.Service.EventService;
 import com.example.app.entity.Event;
 import com.example.app.model.RegistrationEvent;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import com.example.app.repository.EventRepository;
 
         import javax.validation.Valid;
 import java.util.ArrayList;
@@ -44,6 +43,18 @@ public class EventsController {
 //        }
         this.eventService.register(registrationEvent);
         return "events/registerEvent";
+    }
+
+    @GetMapping("/user/seeAll/events")
+    public String getAllEvents(Model model) {
+        model.addAttribute("events",this.eventRepository.findAll());
+        return "events/allEvents";
+    }
+
+    @GetMapping("/user/seeAll/events/{name}")
+    public String getEvent(Model model, @PathVariable String name ) {
+        model.addAttribute("events",this.eventRepository.findOneByNameIgnoreCase(name));
+        return "admin/events";
     }
 
     @RequestMapping(value = "/user/eventsAndPeople", method = RequestMethod.GET)
