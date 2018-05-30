@@ -1,6 +1,7 @@
 package com.example.app.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -8,10 +9,11 @@ import java.util.Set;
 
 @Entity
 @Table (name = "events")
-public class Event {
+public class Event implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", updatable = false, nullable = false)
     private long id;
 
     private String name;
@@ -110,24 +112,22 @@ public class Event {
         this.games = games;
     }
 
-    public void setGames(String gamesData) {
-        String[] array = gamesData.split(",");
-        for (String g:array) {
-            this.games.add(g);
-        }
-    }
-
     public Set<User> getPlayers() {
         return players;
     }
 
-    public void setPlayers(String playersData) {
-        String[] array = playersData.split(",");
-        for (String p:array) {
-            User user = new User();
-            user.setEmail(p);
-            this.players.add(user);
-        }
+    public void setPlayers(Set<User> playersData) {
+       this.players = playersData;
+    }
+
+    public void addUser(User u) {
+        this.players.add(u);
+        u.getEvents().add(this);
+    }
+
+    public void removeUser(User u) {
+        this.players.remove(u);
+        u.getEvents().remove(this);
     }
 
 }

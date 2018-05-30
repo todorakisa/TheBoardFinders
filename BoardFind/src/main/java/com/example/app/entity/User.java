@@ -2,16 +2,18 @@ package com.example.app.entity;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Table (name = "users")
-public class User implements UserDetails {
+public class User implements UserDetails, Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", updatable = false, nullable = false)
     private long id;
 
     private String username;
@@ -21,13 +23,14 @@ public class User implements UserDetails {
     private boolean isAccountNonLocked;
     private boolean isCredentialsNonExpired;
     private boolean isEnabled;
+    private static final long serialVersionUID = -8613364070144931169L;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
     @JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "user_id"),
     inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> authorities = new HashSet<Role>();
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, mappedBy = "players")
+    @ManyToMany(mappedBy = "players")
     private Set<Event> events = new HashSet<>();
 
     public Set<Event> getEvents() {
@@ -115,5 +118,15 @@ public class User implements UserDetails {
 
     public void setAuthorities(Set<Role> authorities) {
         this.authorities = authorities;
+    }
+
+    public void addEvent(Event e) {
+        this.events.add(e);
+        e.getPlayers().add(this);
+    }
+
+    public void removeEvent(Event e) {
+        this.events.remove(e);
+        e.getPlayers().remove(this);
     }
 }

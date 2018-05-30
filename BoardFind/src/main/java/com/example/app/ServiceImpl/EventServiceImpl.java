@@ -36,14 +36,18 @@ public class EventServiceImpl implements EventService {
         String name = auth.getName();
 
         Event event = this.modelMapper.map(registrationEvent, Event.class);
-        event.setGames(registrationEvent.getGamesToParse());
+        String[] array = event.getUsersToParse().split(",");
+        for(String st : array){
+            User player = this.userRepository.findOneByUsername(st);
+            event.addUser(player);
+        }
+
         event.setDescription(registrationEvent.getDescription());
         event.setLatitude(registrationEvent.getLatitude());
         event.setLongitude(registrationEvent.getLongitude());
         event.setName(registrationEvent.getName());
-        event.setPlayers(registrationEvent.getUsersToParse());
         event.setDate(registrationEvent.getDate());
-        System.out.println(name);
+//        System.out.println(name);
         event.setOwner(this.userRepository.findOneByUsername(name));
         this.eventRepository.save(event);
     }

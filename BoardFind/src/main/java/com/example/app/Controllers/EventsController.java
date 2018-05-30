@@ -38,7 +38,7 @@ public class EventsController {
 //            return "events/registerEvent";
 //        }
         this.eventService.register(registrationEvent);
-        return "events/registerEvent";
+        return "redirect:/user/eventsAndPeople";
     }
 
     @GetMapping("/user/seeAll/events")

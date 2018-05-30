@@ -71,39 +71,38 @@
     </script>
 </div>
 
-<br>
-<!--<form method="post" th:object="${event}">-->
+<br />
+<form method="post" th:object="${event}">
 <div class="transbox4">
 
-    <form method="post" th:object="${event}">
+    <!--<form method="post" th:object="${event}">-->
     <p align="center" class ="specialText">
         <span class="blue"> INFO </span>
     </p>
     <div align="center">
         <div id="info" class ="specialText">
             <span class="blue"> Event name*: </span><br>
-            <input type="text" class="input2" th:field="*{name}" /><br>
+            <input type="text" class="input2" th:field="${event.name}" /><br>
 
             <span class="blue"> Games at the event*: </span><br>
-            <input type="text" class="input2" th:field="*{gamesToParse}" /><br>
+            <input type="text" class="input2" th:field="${event.gamesToParse}" /><br>
 
             <span class="blue"> Date*: </span><br>
-            <input type="text" class="input2" th:field="*{date}" /><br>
+            <input type="text" class="input2" th:field="${event.date}" /><br>
 
-            <span class="blue"> Player emails*: </span><br>
-            <input type="text" class="input2" th:field="*{usersToParse}" /><br>
+            <span class="blue"> Player username*: </span><br>
+            <input type="text" class="input2" th:field="${event.usersToParse}" /><br>
 
             <span class="blue"> Description: </span><br>
-            <input type="textarea" class="input2" th:field="*{description}" /><br>
+            <input type="textarea" class="input2" th:field="${event.description}" /><br>
 
             <span class="blue"> latitude*: </span><br>
-            <input id="mapEnd1" type="text" class="input2" th:field="*{latitude}" value="" /><br>
+            <input id="mapEnd1" type="text" class="input2" th:field="${event.latitude}" value="" /><br>
 
             <span class="blue"> longitude*: </span><br>
-            <input id="mapEnd2" type="text" class="input2" th:field="*{longitude}" value="" /><br>
+            <input id="mapEnd2" type="text" class="input2" th:field="${event.longitude}" value="" /><br>
             <p class="smallInfo" align="center">fields with * must be filled!</p>
         </div>
-
     </div>
 </div>
 

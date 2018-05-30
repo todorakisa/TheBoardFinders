@@ -18,15 +18,15 @@ public class RegistrationModel {
 
     private String confirmed_password;
     private String email;
-    private Set<Event> events = new HashSet<>();
+//    private Set<Event> events = new HashSet<>();
 
-    public Set<Event> getEvents() {
-        return events;
-    }
-
-    public void setEvents(Set<Event> events) {
-        this.events = events;
-    }
+//    public Set<Event> getEvents() {
+//        return events;
+//    }
+//
+//    public void setEvents(Set<Event> events) {
+//        this.events = events;
+//    }
 
     public String getUsername() {
         return username;
