@@ -7,12 +7,8 @@ import com.example.app.model.RegistrationEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-import com.example.app.repository.EventRepository;
-
-        import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,7 +50,7 @@ public class EventsController {
     @GetMapping("/user/seeAll/events/{name}")
     public String getEvent(Model model, @PathVariable String name ) {
         model.addAttribute("events",this.eventRepository.findOneByNameIgnoreCase(name));
-        return "admin/events";
+        return "events/singleEvent";
     }
 
     @RequestMapping(value = "/user/eventsAndPeople", method = RequestMethod.GET)
