@@ -1,6 +1,6 @@
 package com.example.app.Controllers;
 
-import com.example.app.repository.EventRepository;
+import com.example.app.Repository.EventRepository;
 import com.example.app.Service.EventService;
 import com.example.app.entity.Event;
 import com.example.app.model.RegistrationEvent;
@@ -48,8 +48,10 @@ public class EventsController {
     }
 
     @GetMapping("/user/seeAll/events/{name}")
-    public String getEvent(Model model, @PathVariable String name ) {
-        model.addAttribute("events",this.eventRepository.findOneByNameIgnoreCase(name));
+    public String getEvent(Model model, @PathVariable("name") String name ) {
+        Event ev = this.eventRepository.findOneByNameIgnoreCase(name);
+//        System.out.println(ev.getName());
+        model.addAttribute("event",ev);
         return "events/singleEvent";
     }
 
