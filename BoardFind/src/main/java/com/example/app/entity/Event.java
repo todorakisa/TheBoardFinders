@@ -2,7 +2,9 @@ package com.example.app.entity;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table (name = "events")
@@ -18,9 +20,12 @@ public class Event {
     @Column(name = "games")
     private List<String> games = new ArrayList<>();
 
-    @ManyToMany(fetch=FetchType.EAGER,cascade = {CascadeType.ALL})
-    @JoinTable(name = "event_users", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "event_id"))
-    private List<User> players;
+    @ManyToMany(fetch=FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(name = "event_users",
+            joinColumns = {@JoinColumn(name = "event_id")},
+            inverseJoinColumns = {@JoinColumn(name = "user_id")})
+    private Set<User> players = new HashSet<>();
+
     private double latitude;
     private double longitude;
     private String description;
@@ -112,12 +117,17 @@ public class Event {
         }
     }
 
-    public List<User> getPlayers() {
+    public Set<User> getPlayers() {
         return players;
     }
 
-    public void setPlayers(List<User> players) {
-        this.players = players;
+    public void setPlayers(String playersData) {
+        String[] array = playersData.split(",");
+        for (String p:array) {
+            User user = new User();
+            user.setEmail(p);
+            this.players.add(user);
+        }
     }
 
 }

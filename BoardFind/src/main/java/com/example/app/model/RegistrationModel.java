@@ -1,8 +1,11 @@
 package com.example.app.model;
 
 import com.example.app.Annotations.isPasswordMatching;
+import com.example.app.entity.Event;
 
 import javax.validation.constraints.Size;
+import java.util.HashSet;
+import java.util.Set;
 
 @isPasswordMatching
 public class RegistrationModel {
@@ -15,6 +18,15 @@ public class RegistrationModel {
 
     private String confirmed_password;
     private String email;
+    private Set<Event> events = new HashSet<>();
+
+    public Set<Event> getEvents() {
+        return events;
+    }
+
+    public void setEvents(Set<Event> events) {
+        this.events = events;
+    }
 
     public String getUsername() {
         return username;

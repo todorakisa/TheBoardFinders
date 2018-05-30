@@ -41,7 +41,7 @@ public class EventServiceImpl implements EventService {
         event.setLatitude(registrationEvent.getLatitude());
         event.setLongitude(registrationEvent.getLongitude());
         event.setName(registrationEvent.getName());
-        event.setPlayers(registrationEvent.getPlayers());
+        event.setPlayers(registrationEvent.getUsersToParse());
         event.setDate(registrationEvent.getDate());
         System.out.println(name);
         event.setOwner(this.userRepository.findOneByUsername(name));

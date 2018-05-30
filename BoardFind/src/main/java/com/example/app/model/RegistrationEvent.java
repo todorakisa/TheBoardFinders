@@ -4,13 +4,15 @@ import com.example.app.entity.User;
 
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class RegistrationEvent {
     @Size(min = 5, max = 100, message = "Event name too short")
     private String name;
     private List<String> games = new ArrayList<>();
-    private List<User> players = new ArrayList<>();
+    private Set<User> players = new HashSet<>();
     private double latitude;
     private double longitude;
     private String description;
@@ -75,11 +77,11 @@ public class RegistrationEvent {
         this.latitude = latitude;
     }
 
-    public List<User> getPlayers() {
+    public Set<User> getPlayers() {
         return players;
     }
 
-    public void setPlayers(List<User> players) {
+    public void setPlayers(Set<User> players) {
         this.players = players;
     }
 

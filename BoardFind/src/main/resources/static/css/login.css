@@ -3,6 +3,7 @@ body{
     background: #63738a;
     font-family: 'Roboto', sans-serif;
     background: url('https://i.imgur.com/2VzVJBB.jpg') no-repeat center center fixed;
+    background-size: cover;
 }
 .form-control{
     height: 40px;
