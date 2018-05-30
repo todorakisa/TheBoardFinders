@@ -289,17 +289,17 @@
         <th scope="col"> Longitude </th>
     </tr>
     </thead>
-    <tbody>
+    <tbody class ="specialText" >
     <th:block th:each="event : ${events}">
 
         <tr>
-            <th scope="row"><a th:href="@{'/user/seeAll/events/' + ${event.name}}" th:text="${event.id}"></a></th>
-            <td><a th:href="@{'/user/seeAll/events/' + ${event.games}}" th:text="${event.games}">...</a></td>
-            <td><a th:href="@{'/user/seeAll/events/' + ${event.date}}" th:text="${event.date}">...</a></td>
-            <td><a th:href="@{'/user/seeAll/events/' + ${event.date}}" th:text="${event.date}">...</a></td>
-            <td><a th:href="@{'/user/seeAll/events/' + ${event.description}}" th:text="${event.description}">...</a></td>
-            <td><a th:href="@{'/user/seeAll/events/' + ${event.latitude}}" th:text="${event.latitude}">...</a></td>
-            <td><a th:href="@{'/user/seeAll/events/' + ${event.longitude}}" th:text="${event.longitude}">...</a></td>
+            <th scope="row"><a th:href="@{'/user/seeAll/events/' + ${event.name}}" ></a></th>
+            <td><a th:href="@{'/user/seeAll/events/' + ${event.name}}" th:text="${event.name}">...</a></td>
+            <td><a th:href="@{'/user/seeAll/events/' + ${event.name}}" th:text="${event.games}">...</a></td>
+            <td><a th:href="@{'/user/seeAll/events/' + ${event.name}}" th:text="${event.date}">...</a></td>
+            <td><a th:href="@{'/user/seeAll/events/' + ${event.name}}" th:text="${event.description}">...</a></td>
+            <td><a th:href="@{'/user/seeAll/events/' + ${event.name}}" th:text="${event.latitude}">...</a></td>
+            <td><a th:href="@{'/user/seeAll/events/' + ${event.name}}" th:text="${event.longitude}">...</a></td>
         </tr>
 
     </th:block>
@@ -310,7 +310,7 @@
 <div id="footer">
     <br>
     <div align="center">
-        <a href="https://www.facebook.com/todor.dimitrov.357284" target="_blank"><img src="/resources/images/1.png" width ="90" height ="90"></a> &nbsp
+        <a href="https://www.facebook.com/The-BoardFinders-1834097936893854/" target="_blank"><img src="/resources/images/1.png" width ="90" height ="90"></a> &nbsp
         <a href="https://twitter.com/Todorakisa" target="_blank"><img src="/resources/images/2.png" width ="90" height ="90"></a> &nbsp
         <a href="https://plus.google.com" target="_blank"><img src="/resources/images/3.png" width ="90" height ="90"></a> &nbsp
         <a href="https://www.instagram.com/todor.domitrov2000/" target="_blank"><img src="/resources/images/4.png" width ="90" height ="90"></a> &nbsp

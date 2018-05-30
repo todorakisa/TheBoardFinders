@@ -1,18 +1,14 @@
 package com.example.app.Controllers;
 
-import com.example.app.Repository.EventRepository;
+import com.example.app.repository.EventRepository;
 import com.example.app.Service.EventService;
 import com.example.app.entity.Event;
 import com.example.app.model.RegistrationEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-import com.example.app.repository.EventRepository;
-
-        import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
