@@ -34,13 +34,10 @@
 <table align="center" class="transbox">
     <thead class ="specialText">
     <tr class="blue">
-        <th scope="col"> Id </th>
         <th scope="col"> Name </th>
-        <!--<th scope="col"> Games </th>-->
         <th scope="col"> Date </th>
         <th scope="col"> Description </th>
-        <!--<th scope="col"> Latitude </th>-->
-        <!--<th scope="col"> Longitude </th>-->
+
     </tr>
     </thead>
     <tbody>
@@ -58,8 +55,8 @@
 <br>
 <div align="center">
     <p class ="specialText" >
-        <button button class="create button1"><a th:href="@{'/admin/manage/users/' + ${event.name} + '/edit'}">Edit</a></button> OR
-        <button  button class="create button1"><a th:href="@{'/admin/manage/users/' + ${event.name} + '/delete'}">Delete</a></button>
+        <button button class="create button1"><a th:href="@{'/admin/manage/users/' + ${event.name} + '/edit'}" style="text-decoration: none">Edit</a></button> OR
+        <button  button class="create button1"><a th:href="@{'/admin/manage/users/' + ${event.name} + '/delete'}" style="text-decoration: none">Delete</a></button>
     </p>
 </div>
 <br><br>

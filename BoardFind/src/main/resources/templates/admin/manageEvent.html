@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang = "en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Managing</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/resources/css/manageUser.css">
+</head>
+<body style="background: url('https://webgradients.com/public/webgradients_png/019%20Malibu%20Beach.png')">
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <a class="navbar-brand" href="/admin">ADMIN</a>
+
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" href="/admin/manage/users">Users</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/admin/manage/events">Events</a>
+        </li>
+    </ul>
+</nav>
+<table align="center" class="table table-dark" id="table_content_change">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Date</th>
+        <!--<th scope="col">Owner</th>-->
+    </tr>
+    </thead>
+    <tbody>
+    <th:block th:object="${events}">
+
+        <tr>
+            <td scope="row"></td>
+            <td th:text="${events.name}">...</td>
+            <td th:text="${events.date}">...</td>
+            <!--<td th:text="${events.owner.username}">...</td>-->
+        </tr>
+
+    </th:block>
+    </tbody>
+</table>
+<div id="ed"><button class="btn-change" id="edit"><a th:href="@{'/admin/manage/events/' + ${events.name} + '/edit'}" style="color: white; text-decoration: none">Edit</a></button></div>
+<div id="del"><button  class="btn-change" id="delete"><a th:href="@{'/admin/manage/events/' + ${events.name} + '/delete'}" style="color: white; text-decoration: none">Delete</a></button></div>
+</body>
+</html>
