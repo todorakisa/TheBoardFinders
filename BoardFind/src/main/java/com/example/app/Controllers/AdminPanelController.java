@@ -1,6 +1,6 @@
 package com.example.app.Controllers;
 
-import com.example.app.Repository.EventRepository;
+import com.example.app.repository.EventRepository;
 import com.example.app.repository.UserRepository;
 import com.example.app.entity.Role;
 import com.example.app.entity.User;

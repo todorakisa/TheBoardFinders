@@ -38,7 +38,6 @@
     </navigator>
     <panes>
       <pane id="AndroidView" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -272,6 +271,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -364,11 +364,12 @@
       <workItem from="1527231739437" duration="248000" />
       <workItem from="1527233370826" duration="305000" />
       <workItem from="1527360891994" duration="31000" />
+      <workItem from="1528144173446" duration="27000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1963000" />
+    <option name="totallyTimeSpent" value="1990000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />

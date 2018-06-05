@@ -21,4 +21,9 @@ public class HomeController {
     public String getContactUsPage(){
         return "home/contactUs";
     }
+
+    @GetMapping("/user/wiki")
+    public String getWikiPage(){
+        return "home/wiki";
+    }
 }

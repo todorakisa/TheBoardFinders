@@ -1,4 +1,4 @@
-package com.example.app.Repository;
+package com.example.app.repository;
 import com.example.app.entity.Event;
 import com.example.app.entity.User;
 import org.springframework.data.jpa.repository.Query;

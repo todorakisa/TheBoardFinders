@@ -1,7 +1,7 @@
 package com.example.app.ServiceImpl;
 import com.example.app.Config.Errors;
 import com.example.app.entity.User;
-import com.example.app.Repository.EventRepository;
+import com.example.app.repository.EventRepository;
 import com.example.app.repository.UserRepository;
 import com.example.app.Service.EventService;
 import com.example.app.entity.Event;
